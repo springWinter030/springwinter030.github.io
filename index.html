@@ -54,6 +54,39 @@
             bottom: 0;
             width: 100%;
         }
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +107,7 @@
                 <h3>웹사이트 소개</h3>
                 <p>이 웹사이트는 HTML과 CSS를 사용하여 기본적인 웹사이트 구조를 만드는 방법을 설명합니다. 
                 이를 통해 웹사이트 제작에 대한 기초 지식을 습득할 수 있습니다.</p>
+                <button id="openModalBtn">모달 열기</button>
             </article>
         </section>
         <section id="about">
@@ -124,5 +158,35 @@
     <footer>
         &copy; 2024 기본 웹사이트. 모든 권리 보유.
     </footer>
+
+    <!-- 모달 창 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>모달 창</h2>
+            <p>이것은 모달 창의 내용입니다.</p>
+        </div>
+    </div>
+
+    <script>
+        // 모달 관련 JavaScript
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
