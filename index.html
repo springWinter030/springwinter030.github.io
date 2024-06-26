@@ -25,12 +25,16 @@
             margin: 0 1em;
             text-decoration: none;
             color: #333;
+            cursor: pointer;
         }
         main {
             padding: 1em;
         }
         section {
-            margin-bottom: 2em;
+            display: none;
+        }
+        section.active {
+            display: block;
         }
         h2 {
             border-bottom: 2px solid #333;
@@ -95,13 +99,13 @@
         <p>기본 HTML 웹사이트 예제</p>
     </header>
     <nav>
-        <a href="#home">홈</a>
-        <a href="#about">소개</a>
-        <a href="#services">서비스</a>
-        <a href="#contact">연락처</a>
+        <a data-section="home">홈</a>
+        <a data-section="about">소개</a>
+        <a data-section="services">서비스</a>
+        <a data-section="contact">연락처</a>
     </nav>
     <main>
-        <section id="home">
+        <section id="home" class="active">
             <h2>홈 페이지</h2>
             <article>
                 <h3>웹사이트 소개</h3>
@@ -156,7 +160,7 @@
         </section>
     </main>
     <footer>
-        &copy; 2024 기본 웹사이트. 모든 권리 보유.
+        &copy; 2024 springWinter030. 모든 권리 보유.
     </footer>
 
     <!-- 모달 창 -->
@@ -187,6 +191,23 @@
                 modal.style.display = "none";
             }
         }
+
+        // 네비게이션 링크 클릭 시 섹션 표시
+        var navLinks = document.querySelectorAll("nav a");
+        var sections = document.querySelectorAll("main section");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                var sectionId = this.getAttribute("data-section");
+
+                sections.forEach(section => {
+                    section.classList.remove("active");
+                    if (section.id === sectionId) {
+                        section.classList.add("active");
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
