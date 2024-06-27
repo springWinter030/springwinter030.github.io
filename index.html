@@ -270,32 +270,52 @@
         </div>
     </div>
 
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Download File</h2>
+            <p><a href="path_to_your_file/your_file.pdf" download>Download Here</a></p>
+        </div>
+    </div>
+
     <script>
         var modal = document.getElementById("myModal");
+        var downloadModal = document.getElementById("downloadModal");
         var btn = document.getElementById("openModalBtn");
-        var span = document.getElementsByClassName("close")[0];
-
+        var downloadBtn = document.getElementById("downloadFileBtn");
+        var span = document.getElementsByClassName("close");
+        
         btn.onclick = function() {
             modal.style.display = "block";
         }
-
-        span.onclick = function() {
+        
+        downloadBtn.onclick = function() {
+            downloadModal.style.display = "block";
+        }
+        
+        span[0].onclick = function() {
             modal.style.display = "none";
         }
-
+        
+        span[1].onclick = function() {
+            downloadModal.style.display = "none";
+        }
+        
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+            } else if (event.target == downloadModal) {
+                downloadModal.style.display = "none";
             }
         }
-
+        
         var navLinks = document.querySelectorAll("nav a");
         var sections = document.querySelectorAll("main section");
-
+        
         navLinks.forEach(link => {
             link.addEventListener("click", function() {
                 var sectionId = this.getAttribute("data-section");
-
+        
                 sections.forEach(section => {
                     section.classList.remove("active");
                     if (section.id === sectionId) {
