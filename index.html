@@ -125,7 +125,7 @@
                 <img src="https://github.com/springWinter030/springWinter030.github.io/blob/main/profile.jpg?raw=true" alt="Your Photo">
                 <div class="details">
                     <p><strong>이름:</strong> 권용균</p>
-                    <p><strong>나이:</strong> 22 (2003년생)</p>
+                    <p><strong>나이:</strong> <span id="age"></span> (2003년생)</p>
                 </div>
             </div>
             <article>
@@ -348,6 +348,8 @@
                 });
             });
         });
+        
+        document.getElementById('age').textContent = new Date().getFullYear() - 2003;
     </script>
 </body>
 </html>
