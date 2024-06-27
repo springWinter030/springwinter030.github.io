@@ -91,6 +91,21 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .intro-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2em;
+        }
+        .intro-container img {
+            max-width: 150px;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+        .intro-container .details {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +121,14 @@
     <main>
         <section id="about" class="active">
             <h2>■ 소개</h2>
+            <div class="intro-container">
+                <img src="your-image-url.jpg" alt="Your Photo">
+                <div class="details">
+                    <p><strong>이름:</strong> 권용균</p>
+                    <p><strong>나이:</strong> 22</p>
+                    <p><strong>직업:</strong> 게임 개발자</p>
+                </div>
+            </div>
             <article>
                 <h3>"오늘보다 더 안정된 내일을 위해"</h3>
                 <p>안녕하십니까. 이번에 귀사에 지원하게 된 권용균입니다.<br><br>
