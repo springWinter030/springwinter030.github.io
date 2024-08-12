@@ -117,9 +117,9 @@
         <p>꾸준히 만들어가는 내 삶의 기록</p>
     </header>
     <nav>
-        <a data-section="about">기본</a>
-        <a data-section="services">경력</a>
-        <a data-section="contact">연락처</a>
+        <a href="#about">기본</a>
+        <a href="#services">경력</a>
+        <a href="#contact">연락처</a>
     </nav>
     <main>
         <section id="about" class="active">
@@ -347,18 +347,12 @@
         }
         
         var navLinks = document.querySelectorAll("nav a");
-        var sections = document.querySelectorAll("main section");
-        
+
         navLinks.forEach(link => {
-            link.addEventListener("click", function() {
-                var sectionId = this.getAttribute("data-section");
-        
-                sections.forEach(section => {
-                    section.classList.remove("active");
-                    if (section.id === sectionId) {
-                        section.classList.add("active");
-                    }
-                });
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                var sectionId = this.getAttribute("href");
+                document.querySelector(sectionId).scrollIntoView({ behavior: "smooth" });
             });
         });
         
