@@ -310,6 +310,8 @@
         &copy; 2024 springWinter030. all rights reserved.
     </footer>
 
+    <button id="backToTopBtn" title="Go to top">Top</button>
+    
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -369,7 +371,7 @@
                 document.querySelector(sectionId).scrollIntoView({ behavior: "smooth" });
             });
         });
-        
+
         document.getElementById('age').textContent = new Date().getFullYear() - 2003;
 
         var backToTopBtn = document.getElementById("backToTopBtn");
@@ -388,7 +390,5 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         });
     </script>
-    
-    <button id="backToTopBtn" title="Go to top">Top</button>
 </body>
 </html>
