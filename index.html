@@ -317,7 +317,7 @@
             </article>
         </section>
         <section id="services">
-            <h2>■ 경력</h2>
+            <h2>■ 경력 : 총 <span id=experiences></span></h2>
             <article>
                 <h3>※ (주)캡틴스 - 직위: 대리 / 기간 : 2022.03 ~ now</h3>
                 <h3>Project: 최초의 헌터</h3>
@@ -436,7 +436,25 @@
                 document.querySelector(sectionId).scrollIntoView({ behavior: "smooth" });
             });
         });
+        
+        function calculatePeriod(startDate) {
+            const now = new Date();
+            const start = new Date(startDate);
+            let years = now.getFullYear() - start.getFullYear();
+            let months = now.getMonth() - start.getMonth();
 
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            return { years, months };
+        }
+
+        const startDate = '2022-03-01'; // 시작 날짜
+        const period = calculatePeriod(startDate);
+
+        document.getElementById('experiences').textContent = `${period.years}년 ${period.months}개월`;
         document.getElementById('age').textContent = new Date().getFullYear() - 2003;
 
         var backToTopBtn = document.getElementById("backToTopBtn");
