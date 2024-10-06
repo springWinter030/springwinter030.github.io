@@ -319,7 +319,7 @@
         <section id="services">
             <h2>■ 경력 - <span id=experiences></span></h2>
             <article>
-                <h3>※ (주)캡틴스 - 직위: 대리 / 기간 : 2022.03 ~ now</h3>
+                <h3>※ (주)캡틴스 - 직위: 대리 / 기간 : 2022.03 ~ 2024.08</h3>
                 <h3>Project: 최초의 헌터</h3>
                 <p>- 주요 업무 : 게임 서버 관리 및 컨텐츠 개발 <br>
                     - 기간 : 2022.03 ~<br>
@@ -437,25 +437,30 @@
             });
         });
         
-        function calculatePeriod(startDate) {
-            const now = new Date();
+        function calculatePeriod(startDate, useCurrentDate = true, targetYear = null, targetMonth = null) {
+            let now;
+            if (useCurrentDate)
+                now = new Date();
+            else 
+                now = new Date(targetYear, targetMonth - 1);
+        
             const start = new Date(startDate);
             let years = now.getFullYear() - start.getFullYear();
             let months = now.getMonth() - start.getMonth();
-
+        
             if (months < 0) {
                 years--;
                 months += 12;
             }
-
+        
             return { years, months };
         }
-
-        const startDate = '2022-03-01'; // 시작 날짜
-        const period = calculatePeriod(startDate);
-
-        document.getElementById('experiences').textContent = `${period.years}년 ${period.months}개월`;
+        
+        const captainsPeriod = calculatePeriod('2022-03-01', false, 2024, 8);
+        
+        document.getElementById('experiences').textContent = `총 ${captainsPeriod.years}년 ${captainsPeriod.months}개월`;
         document.getElementById('age').textContent = new Date().getFullYear() - 2003;
+
 
         var backToTopBtn = document.getElementById("backToTopBtn");
         
